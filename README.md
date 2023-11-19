@@ -1,2 +1,2 @@
 # Async-Web-Desing
- Web asíncrona
+ ejercicio para una Web asíncrona.
