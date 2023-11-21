@@ -73,21 +73,29 @@ const printImages = (search = "popular") => {
       return response.json();
     })
     .then(data => {
-      console.log(data);
-      for (const photography of data.results) {
-        const photographyDiv = document.createElement('div');
-        const image = document.createElement('img');
-        image.className = 'imgGallery';
 
-        image.src = photography.urls.small;
-        image.alt = photography.alt_description;
 
-        main.appendChild(photographyDiv);
-        photographyDiv.appendChild(image);
+      if (data.results.length === 0) {
+        const noResults = document.createElement('h2');
+        noResults.innerHTML = 'No se encuentran imágenes...';
+        main.appendChild(noResults);
+      } else {
+        console.log(data);
+        for (const photography of data.results) {
+          const photographyDiv = document.createElement('div');
+          const image = document.createElement('img');
+          image.className = 'imgGallery';
 
-        image.addEventListener('click', () => {
-          BigImgFunction(photography.urls.regular, photography.alt_description);
-        })
+          image.src = photography.urls.small;
+          image.alt = photography.alt_description;
+
+          main.appendChild(photographyDiv);
+          photographyDiv.appendChild(image);
+
+          image.addEventListener('click', () => {
+            BigImgFunction(photography.urls.regular, photography.alt_description);
+          })
+        }
       }
     })
     .catch(error => {

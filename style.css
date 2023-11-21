@@ -89,6 +89,13 @@ main > div {
   margin: 10px;
 }
 
+main > h2 {
+  text-align: center;
+  position: absolute;
+  top: 400px;
+  font-size: 20px;
+}
+
 .imgGallery {
   object-fit: cover;
   width: 100%;
@@ -141,10 +148,10 @@ height: 100%;
  padding: 10px;
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (max-width: 900px) {
 
   main {
-    cursor: none;
+    pointer-events: none;
   }
   
 }
